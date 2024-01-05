@@ -48,9 +48,9 @@ app.use(require('express').json())
 
 
 
-app.use('/', require('./routes/admin.routes'));
-app.use('/', require('./routes/auth.routes'))
-app.use('/', require('./routes/shipment.route'))
+app.use(require('./routes/admin.routes'));
+app.use(require('./routes/auth.routes'))
+app.use(require('./routes/shipment.route'))
 
 
 

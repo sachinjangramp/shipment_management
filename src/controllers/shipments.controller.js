@@ -81,15 +81,15 @@ exports.statusUpdate = function (req, res) {
         logger.error('Please provide all required field');
         res.status(400).send({ error: true, message: 'Please provide all required field' });
     } else {
-        Status.statusUpdate(req.params.id, new Status(req.body), function (err, shipment) {
+        Status.statusUpdate(req.params.id, new Status(req.body), function (err, user_email) {
             if (err) {
                 logger.error(err);
                 res.send(err);
             }
             logger.info('Status successfully updated');
             res.json({ error: false, message: 'Status successfully updated' });
-            let text = `Status has been updated: Location-${req.body.status_location}, Decription-${req.body.status_description} ${result}`;
-            let email = 'sachinjangrapm@gmail.com';
+            let text = `Status has been updated: Location-${req.body.status_location}, Decription-${req.body.status_description}`;
+            let email = user_email;
             require('../utils/email')(email, text);
 
         });
