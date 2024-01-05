@@ -2,13 +2,13 @@ const db = require('../config/db.config').promise();
 const logger = require('./../utils/logger');
 
 const createUser = async (req, res) => {
-    const { first_name, last_name, username, password, contact_no, role_id } = req.body;
+    const { first_name, last_name, username, password, contact_no, role_id, user_email } = req.body;
 
     const salt = await require('bcrypt').genSalt(10);
     const hashedPassword = await require('bcrypt').hash(password, salt)
 
-    const columns = ['first_name', 'last_name', 'username', 'password'];
-    const values = [first_name, last_name, username, hashedPassword];
+    const columns = ['first_name', 'last_name', 'username', 'password', 'user_email'];
+    const values = [first_name, last_name, username, hashedPassword, user_email];
 
     if (role_id !== undefined) {
         columns.push('role_id');
@@ -83,7 +83,7 @@ const deleteUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-    const { id, first_name, last_name, username, password, contact_no, role_id } = req.body;
+    const { id, first_name, last_name, username, password, contact_no, role_id, user_email } = req.body;
 
     if (!id) {
         logger.error('User ID is required in the request body');
@@ -118,6 +118,10 @@ const updateUser = async (req, res) => {
     if (role_id !== undefined) {
         columns.push('role_id = ?');
         values.push(role_id);
+    }
+    if (user_email !== undefined) {
+        columns.push('user_email = ?');
+        values.push(user_email);
     }
 
     if (columns.length === 0) {
