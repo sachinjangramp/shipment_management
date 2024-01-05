@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 require('dotenv').config()
 const logger = require('./../utils/logger');
 
-const connection = mysql.createConnection(`mysql://user:user@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
+const connection = mysql.createConnection(`mysql://root:sachin123@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
 
 connection.connect((err) => {
   if (err) {

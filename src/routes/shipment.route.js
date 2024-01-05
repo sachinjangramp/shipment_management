@@ -245,18 +245,10 @@ router.delete('/shipments/:id', verifyRole(['admin', 'super', 'dev']), controlle
  *            schema:
  *              type: object
  *              properties:
- *                tracking_number:
- *                  type: string
- *                receiver_info:
- *                  type: string
  *                status_location:
  *                   type:string
  *                status_description:
  *                   type:string
- *                carrier:
- *                   type:string
- *                sender_id:
- *                   type:int
  *      summary: Update Shipment Status
  *      description: Update Shipment Status - Accessible Roles (ADMIN)
  *      responses:
@@ -271,7 +263,7 @@ router.delete('/shipments/:id', verifyRole(['admin', 'super', 'dev']), controlle
  *                
  */
 
-router.patch('shipments/statusupdate/:id', verifyRole(['admin', 'super', 'dev']), controller.statusUpdate);
+router.patch('/shipments/statusupdate/:id', verifyRole(['admin', 'super', 'dev']), controller.statusUpdate);
 
 
 

@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 require('dotenv').config()
+const logger = require("./logger")
 
 const sendMessage = (mail, text) => {
 
