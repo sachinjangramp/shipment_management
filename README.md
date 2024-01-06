@@ -33,6 +33,9 @@ You can get the token from the response header.
 
 ### Necessary Information to Test APIs
 
+- User Creation:
+  - A new user can be created by admin only.
+
 - Role ID Definitions:
   - Admin User: Role ID 5
   - Regular User: Role ID 6
