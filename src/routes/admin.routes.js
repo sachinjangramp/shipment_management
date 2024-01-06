@@ -156,6 +156,25 @@ const getLogs = require('../controllers/logs.controller')
  *              application/json:
  *                  example:
  *                      message: "User updated successfully"
+ * /logs:
+ *   get:
+ *
+ *      tags:
+ *          - Logs
+ *      parameters:
+ *        - name: token
+ *          in: header
+ *          description: Auth token for authorization
+ *          required: true
+ *      summary: Get logs
+ *      description: Get logs stored till now
+ *      responses:
+ *        '200':
+ *          description: Success
+ *          content:
+ *              application/json:
+ *                  example:
+ *                      2024-01-06T04:40:43.341Z | INFO | Connected to MySQL database!
  */
 
 
