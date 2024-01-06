@@ -2,6 +2,7 @@ const router = require('express').Router()
 
 const { createUser, deleteUser, updateUser, getAllUsers } = require('../controllers/user.controller')
 const { verifyRole } = require('../middlewares/user.verify')
+const getLogs = require('../controllers/logs.controller')
 
 
 //Protected Route
@@ -155,6 +156,25 @@ const { verifyRole } = require('../middlewares/user.verify')
  *              application/json:
  *                  example:
  *                      message: "User updated successfully"
+ * /logs:
+ *   get:
+ *
+ *      tags:
+ *          - Logs
+ *      parameters:
+ *        - name: token
+ *          in: header
+ *          description: Auth token for authorization
+ *          required: true
+ *      summary: Get logs
+ *      description: Get logs stored till now
+ *      responses:
+ *        '200':
+ *          description: Success
+ *          content:
+ *              application/json:
+ *                  example:
+ *                      2024-01-06T04:40:43.341Z | INFO | Connected to MySQL database!
  */
 
 
@@ -163,7 +183,7 @@ router.post('/user', verifyRole(['ADMIN', 'DEV', 'SUPER']), createUser);
 router.delete('/user', verifyRole(['ADMIN', 'DEV', 'SUPER']), deleteUser);
 router.patch('/user', verifyRole(['ADMIN', 'DEV', 'SUPER']), updateUser);
 
-
+router.get('/logs', verifyRole(['ADMIN', 'DEV', 'SUPER']), getLogs);
 
 
 

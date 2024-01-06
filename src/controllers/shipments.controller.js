@@ -97,6 +97,7 @@ exports.statusUpdate = function (req, res) {
 };
 
 exports.search = function (req, res) {
+
     const {
         tracking_number,
         receiver_info,

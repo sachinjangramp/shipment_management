@@ -5,7 +5,6 @@ app.use(require('express').json())
 
 
 
-
 //Router as Middleware
 /**
  * @openapi
