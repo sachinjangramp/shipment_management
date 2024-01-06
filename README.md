@@ -2,52 +2,43 @@
 
 ## Table of Contents
 
-- [Prerequisites](#prerequisites)
+- [Stack](#stack)
 - [Getting Started](#getting-started)
-  - [Clone the Repository](#clone-the-repository)
-  - [Install Dependencies](#install-dependencies)
-  - [Configure Environment Variables](#Configure-Environment-Variables)
-  - [Run the Application](#run-the-application)
-  - [Navigate for API Documentation and Testing](#Navigate-for-API-Documentation-and-Testing)
+  - [Navigate for API Documentation and Testing](#navigate-for-api-documentation-and-testing)
+  - [Get Token to Test APIs](#get-token-to-test-apis)
+  - [Necessary Information to Test APIs](#necessary-information-to-test-apis)
+  
 
-## Prerequisites
+## Stack
 
 - Node.js
-- npm
+- Express
 - MySQL
 
 ## Getting Started
 
-Steps to run the project locally.
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/sachinjangramp/shipment_management.git
-cd shipment_management
-```
-
-
-### Install Dependencies
-
-```bash
-npm install
-```
-
-### Configure Environment Variables
-
-Configure the Environment Variables in .env File
-
-### Run the Application
-
-```bash
-npm start
-```
-
 ### Navigate for API Documentation and Testing
 
-To:
+Deployment Link: [API Documentation](http://ec2-3-93-52-169.compute-1.amazonaws.com/)
 
+This link will navigate to documentation created with Swagger UI
+
+### Get Token to Test APIs
+
+Sign with username: admin and password: admin
 ```bash
-localhost:5002
+admin
 ```
+You can get the token from the response header.
+
+### Necessary Information to Test APIs
+
+- Role ID Definitions:
+  - Admin User: Role ID 5
+  - Regular User: Role ID 6
+
+- Sender ID in Shipment Creation:
+  - When creating a shipment, you can mention any `user_id` in the `sender_id` column.
+
+- Email Notification on Shipment Status Update:
+  - When the status of a shipment is successfully updated, an email notification will be sent to the user based on the `sender_id`.
