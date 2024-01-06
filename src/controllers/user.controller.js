@@ -83,9 +83,9 @@ const deleteUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-    const { id, first_name, last_name, username, password, contact_no, role_id, user_email } = req.body;
+    const { user_id, first_name, last_name, username, password, contact_no, role_id, user_email } = req.body;
 
-    if (!id) {
+    if (!user_id) {
         logger.error('User ID is required in the request body');
         return res.status(400).json({ error: 'User ID is required in the request body' });
     }
@@ -132,7 +132,7 @@ const updateUser = async (req, res) => {
     const updateQuery = `UPDATE users SET ${columns.join(', ')} WHERE user_id = ?`;
 
     try {
-        const [rows] = await db.query(updateQuery, [...values, id]);
+        const [rows] = await db.query(updateQuery, [...values, user_id]);
 
         if (rows.affectedRows === 0) {
             logger.error('User not found');

@@ -2,6 +2,7 @@ const router = require('express').Router()
 
 const { createUser, deleteUser, updateUser, getAllUsers } = require('../controllers/user.controller')
 const { verifyRole } = require('../middlewares/user.verify')
+const getLogs = require('../controllers/logs.controller')
 
 
 //Protected Route
@@ -163,7 +164,7 @@ router.post('/user', verifyRole(['ADMIN', 'DEV', 'SUPER']), createUser);
 router.delete('/user', verifyRole(['ADMIN', 'DEV', 'SUPER']), deleteUser);
 router.patch('/user', verifyRole(['ADMIN', 'DEV', 'SUPER']), updateUser);
 
-
+router.get('/logs', verifyRole(['ADMIN', 'DEV', 'SUPER']), getLogs);
 
 
 
