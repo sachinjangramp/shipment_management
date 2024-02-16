@@ -72,7 +72,10 @@ const getLogs = require('../controllers/logs.controller')
  *                           required: true
  *                       role_id:
  *                           type: integer
- *                           default: 2
+ *                           default: 4
+ *                           required: true
+ *                       user_email:
+ *                           type: string
  *                           required: true
  *
  *      responses:
